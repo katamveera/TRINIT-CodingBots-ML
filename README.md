@@ -4,25 +4,28 @@ Explainable Sexual Harassment Categorization System
 The Explainable Sexual Harassment Categorization aims to classify instances of sexual harassment in text data while providing transparent explanations for the categorization decisions. This is essential for understanding the factors influencing the model's predictions and ensuring accountability and fairness in addressing sexual harassment.
 
 # **Challenges in Explainable Sexual Harassment Categorization:**
-1. **Data Quality:** Obtaining high-quality labeled datasets containing diverse examples of sexual harassment incidents.
-2. **Interpretability:** Ensuring that the model's decision-making process is transparent and understandable, especially in sensitive domains like sexual harassment.
-3. **Subjectivity:** Handling the subjective nature of sexual harassment perceptions and interpretations.
-4. **Bias Mitigation:** Addressing biases present in the data and model predictions to ensure fairness and inclusivity.
+Understanding the factors/features that contribute to sexual harassment incidents.
+Explaining the decision-making process of machine learning models in identifying sexual harassment incidents.
+Ensuring transparency and interpretability in the classification process.
 
 # **Approach:**
-1. **Data Collection:** Gather labeled datasets containing narratives or descriptions of sexual harassment incidents.
-2. **Preprocessing:** Clean and preprocess the text data, including removing noise, standardizing formatting, and tokenization.
-3. **Model Selection:** Choose appropriate machine learning or deep learning models for text classification, considering both accuracy and explainability.
-4. **Training:** Train the selected models on the labeled dataset, optimizing for accuracy and interpretability.
-5. **Explanation Techniques:** Apply explainable AI techniques such as SHAP or LIME to provide insights into the model's decision-making process.
-6. **Evaluation:** Evaluate the model's performance using metrics like accuracy, precision, recall, and F1 score.
-7. **Iterative Improvement:** Continuously refine and improve the model based on feedback and validation against real-world cases.
+Tokenization, stop-word removal, and vectorization of textual descriptions using TF-IDF (Term Frequency-Inverse Document Frequency).
+Training an SVM classifier with a linear kernel on the vectorized textual data.
+Using SHAP (Kernel Explainer) to compute the SHAP values, which represent the impact of each feature on the model's output.
+Evaluating the model's performance using the Hamming Score for multi-classification.
 
 # **Dataset:**
-The dataset consists of labeled examples of sexual harassment incidents, including text descriptions or narratives of the incidents and their corresponding categories.
+The dataset contains textual descriptions of sexual harassment incidents.
+It includes features such as the description of the incident and the corresponding label indicating the type of harassment.
 
 # **Code Description:**
-The Python code implements a basic rule-based approach to categorize text for potential sexual harassment using regular expressions. It categorizes text as "Potential Sexual Harassment" if specific keywords associated with harassment or assault are found, otherwise, it's categorized as "Not Classified." An explanation function provides context for the categorization decision.
+The code loads the dataset and performs data preprocessing steps such as vectorization and splitting into training and testing sets.
+It trains an SVM classifier on the training data and computes SHAP values using a Kernel SHAP explainer.
+The SHAP values are visualized using a summary plot.
+Evaluation metrics such as the Hamming Score, identity accuracy, separability score, similarity score, and stability score are computed.
+These metrics provide insights into the model's performance, interpretability, and robustness.
 
 # **Conclusion:**
-The Explainable Sexual Harassment Categorization is crucial for addressing sexual harassment effectively, providing transparency, and accountability in decision-making processes. While the provided code offers a basic rule-based approach, more sophisticated machine learning models combined with explainable AI techniques can further enhance the accuracy and interpretability of sexual harassment categorization systems.
+The code demonstrates an approach to classify sexual harassment incidents using machine learning techniques while providing explanations for the model's decisions.
+It highlights the importance of explainability in sensitive domains such as sexual harassment categorization.
+The evaluation metrics help assess the model's performance and interpretability, contributing to transparency and accountability in the classification process.
